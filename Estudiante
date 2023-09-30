@@ -1,1 +1,49 @@
-1
+Código:
+
+package estudiante.estudiante;
+import javax.swing.JOptionPane;
+
+public class Estudiante {
+
+    public static void main(String[] args) {
+        Estudiante estudiante1 = new Estudiante();
+        estudiante1.info();
+        estudiante1.mostrar();
+            
+        Estudiante estudiante2 = new Estudiante();
+        estudiante2.info();
+        estudiante2.mostrar();
+    }
+    private String nombre;
+    private int edad;
+    private double nota;
+    public Estudiante() {
+    }
+
+    public void info() {
+        this.nombre = JOptionPane.showInputDialog("Ingrese el nombre del estudiante:");
+        this.edad = Integer.parseInt(JOptionPane.showInputDialog("Ingrese la edad del estudiante:"));
+        this.nota = Double.parseDouble(JOptionPane.showInputDialog("Ingrese la nota del estudiante:"));
+    }
+    public String getNombre(){
+        return nombre;
+    }
+    public int getEdad(){
+        return edad;
+    }
+    public double getNota(){
+        return nota;
+    }
+    public void setNombre(String nombre) {
+        this.nombre = nombre;
+    }
+    public void setEdad(int edad) {
+        this.edad = edad;
+    }
+    public void setNota(double nota) {
+        this.nota = nota;
+    }
+    public void mostrar(){
+        JOptionPane.showMessageDialog(null,"\nEl estudiante es: " + nombre + "\nLa edad del estudiante es: " + edad + "\nLa nota del estudiante es: " + nota);
+    }
+}
