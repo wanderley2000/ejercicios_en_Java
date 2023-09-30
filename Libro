@@ -1,0 +1,45 @@
+3. Clase Libro: Crea una clase Libro con variables privadas para el título, el autor y el año de publicación. Proporciona métodos públicos para obtener información 
+sobre el libro.
+
+
+package libro.libro;
+
+import javax.swing.JOptionPane;
+
+public class Libro {
+    public static void main(String[] args) {
+        Libro estudiante1 = new Libro();
+        estudiante1.info();
+        estudiante1.mostrar();
+    }
+    private String titulo, autor;
+    private int añoPublicacion;
+
+
+    public void info() {
+    this.titulo = JOptionPane.showInputDialog("Ingrese el nombre del libro: ");
+    this.autor = JOptionPane.showInputDialog("Ingrese el autor del libro:");
+    this.añoPublicacion = Integer.parseInt(JOptionPane.showInputDialog("Ingrese el año de publicación del libro"));
+    }
+    public String getTitulo(){
+        return titulo;
+    }
+    public String getAutor(){
+        return autor;
+    }
+    public int getAñoPub(){
+        return añoPublicacion;
+    }
+    public void setTitulo(String titulo) {
+        this.titulo = titulo;
+    }
+    public void setAutor(String autor) {
+        this.autor = autor;
+    }
+    public void setAñoPub(int añoPublicacion) {
+        this.añoPublicacion = añoPublicacion;
+    }
+    public void mostrar(){
+        JOptionPane.showMessageDialog(null,"\nEl libro se llama: " + titulo + "\nEl autor del libro es: " + autor + "\nEl libro "+titulo+" fue publicado en " + añoPublicacion);
+    }
+}
