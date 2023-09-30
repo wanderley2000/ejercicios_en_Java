@@ -1,0 +1,88 @@
+package cuentabancaria.cuentabancaria;
+
+import javax.swing.JOptionPane;
+
+public class CuentaBancaria {
+    private double saldo;
+    private String numeroCuenta;
+
+    public CuentaBancaria(String numeroCuenta, double saldoInicial) {
+        this.numeroCuenta = numeroCuenta;
+        if (saldoInicial >= 0) {
+            this.saldo = saldoInicial;
+        } else {
+            this.saldo = 0;
+        }
+    }
+
+    public void realizarOperacion(int opcion) {
+        switch (opcion) {
+            case 1:
+                depositar();
+                break;
+            case 2:
+                retirar();
+                break;
+            case 3:
+                consultarSaldo();
+                break;
+            default:
+                JOptionPane.showMessageDialog(null, "Opción no válida.");
+        }
+    }
+
+    private void depositar() {
+        String input = JOptionPane.showInputDialog("Ingrese el monto a depositar:");
+            double cantidad = Double.parseDouble(input);
+            if (cantidad > 0) {
+                saldo += cantidad;
+                JOptionPane.showMessageDialog(null, "Depósito de $" + cantidad + " realizado con éxito.");
+            } else {
+                JOptionPane.showMessageDialog(null, "Error: El monto a depositar debe ser mayor que cero.");
+            }
+        }
+    
+
+    private void retirar() {
+        String input = JOptionPane.showInputDialog("Ingrese el monto a retirar:");
+            double cantidad = Double.parseDouble(input);
+            if (cantidad > 0 && saldo >= cantidad) {
+                saldo -= cantidad;
+                JOptionPane.showMessageDialog(null, "Retiro de $" + cantidad + " realizado con éxito.");
+            } else if (cantidad <= 0) {
+                JOptionPane.showMessageDialog(null, "Error: El monto a retirar debe ser mayor que cero.");
+            } else {
+                JOptionPane.showMessageDialog(null, "Error: Saldo insuficiente para realizar el retiro.");
+            }
+        }
+
+    private void consultarSaldo() {
+        JOptionPane.showMessageDialog(null, "Saldo actual: $" + saldo);
+    }
+
+    public static void main(String[] args) {
+        String numeroCuenta = JOptionPane.showInputDialog("Ingrese el número de cuenta:");
+        String saldoInicialStr = JOptionPane.showInputDialog("Ingrese el saldo inicial:");
+
+            double saldoInicial = Double.parseDouble(saldoInicialStr);
+            CuentaBancaria cuenta = new CuentaBancaria(numeroCuenta, saldoInicial);
+
+            while (true) {
+                String opcionStr = JOptionPane.showInputDialog(
+                        "Operaciones disponibles:\n" +
+                        "1. Depósito\n" +
+                        "2. Retiro\n" +
+                        "3. Consultar Saldo\n" +
+                        "4. Salir\n" +
+                        "Ingrese el número de la operación que desea realizar:"
+                );
+                int opcion = Integer.parseInt(opcionStr);
+
+                if (opcion == 4) {
+                    break;
+                }
+
+                cuenta.realizarOperacion(opcion);
+            }
+        }
+    }
