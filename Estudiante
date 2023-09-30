@@ -1,3 +1,6 @@
+Ejercicio 1. Clase Estudiante: Crea una clase Estudiante con variables privadas para el nombre, la edad y la nota.
+Proporciona métodos públicos para acceder y modificar estos atributos de manera controlada.
+
 Código:
 
 package estudiante.estudiante;
