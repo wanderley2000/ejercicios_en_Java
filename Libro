@@ -8,7 +8,7 @@ import javax.swing.JOptionPane;
 
 public class Libro {
     public static void main(String[] args) {
-        Libro estudiante1 = new Libro();
+        Libro libro1 = new Libro();
         estudiante1.info();
         estudiante1.mostrar();
     }
