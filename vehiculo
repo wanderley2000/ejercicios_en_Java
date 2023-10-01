@@ -1,0 +1,81 @@
+4. Clase Vehículo: Diseña una clase Vehículo con variables privadas para la marca, el modelo y la velocidad actual. Proporciona métodos 
+públicos para acelerar y frenar el vehículo, asegurándote de que la velocidad no sea negativa.
+
+package auto.automovil;
+import javax.swing.JOptionPane;
+
+
+public class Automovil {
+
+    public Automovil(String marca1, int modelo1) {
+    }
+    private String marca, modelo;
+    private int velocidadAct;
+    int velocidad, freno;
+
+    public void realizarOperacion(int opcion) {
+        switch (opcion) {
+            case 1:
+                Acelerar();
+                break;
+            case 2:
+                Frenar();
+                break;
+            case 3:
+                consultarV();
+                break;
+            default:
+                JOptionPane.showMessageDialog(null, "Opción no válida.");
+        }
+    }
+    private void Acelerar() {
+        velocidad = Integer.parseInt(JOptionPane.showInputDialog("Ingrese la velocidad a la que desea acelerar:"));
+            if (velocidad > 0) {
+                velocidadAct += velocidad;
+                JOptionPane.showMessageDialog(null, "El vehiculo ha acelerado hasta: " + velocidad+"Km");
+            } else {
+                JOptionPane.showMessageDialog(null, "La velocidad debe ser mayor a 0km");
+            }
+        }
+    
+    private void Frenar() {
+        freno = Integer.parseInt(JOptionPane.showInputDialog("Ingrese la velocidad a la que desea frenar el vehiculo:"));
+            if (freno >= 0) {
+                if (velocidadAct >= freno) {
+                    velocidadAct -= freno;
+                } else {
+                    velocidadAct = 0;
+                }
+                JOptionPane.showMessageDialog(null, "El vehiculo ha frenado: " +velocidad+"Km/h");
+            } else {
+                JOptionPane.showMessageDialog(null, "La velocidad debe ser mayor a 0Km/h");
+            }
+        }
+    private void consultarV() {
+        JOptionPane.showMessageDialog(null, "La velocidad actual es de: " + velocidadAct);
+    }
+    
+    public static void main(String[] args) {
+        String marca = JOptionPane.showInputDialog("Ingrese el marca del vehiculo: ");
+        int modelo = Integer.parseInt(JOptionPane.showInputDialog("Ingrese el modelo del vehiculo: "));
+        
+            Automovil auto = new Automovil(marca, modelo);
+
+            while (true) {
+                String opcionStr = JOptionPane.showInputDialog(
+                        "Operaciones disponibles:\n" +
+                        "1. Acelerar\n" +
+                        "2. Frenar\n" +
+                        "3. Consultar velocidad\n" +
+                        "Ingrese el número de la operación que desea realizar:"
+                );
+                int opcion = Integer.parseInt(opcionStr);
+
+                if (opcion == 4) {
+                    break;
+                }
+
+                auto.realizarOperacion(opcion);
+            }
+        }
+    }
