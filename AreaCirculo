@@ -24,7 +24,11 @@ public class Circulo {
         this.radio = titulo;
     }
     public void mostrar(){
+        if(radio > 0){
         area = (float) (Math.PI * Math.pow(radio, 2));
         JOptionPane.showMessageDialog(null, "El area del circulo es: "+area);
+        }else{
+        JOptionPane.showMessageDialog(null, "El radio debe ser mayor a 0");
+        }
     }
 }
