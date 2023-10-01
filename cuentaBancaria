@@ -32,8 +32,8 @@ public class CuentaBancaria {
     }
 
     private void depositar() {
-        String input = JOptionPane.showInputDialog("Ingrese el monto a depositar:");
-            double cantidad = Double.parseDouble(input);
+        JOptionPane.showInputDialog("Ingrese el monto a depositar:");
+            cantidad = Double.parseDouble(input);
             if (cantidad > 0) {
                 saldo += cantidad;
                 JOptionPane.showMessageDialog(null, "Depósito de $" + cantidad + " realizado con éxito.");
@@ -44,8 +44,8 @@ public class CuentaBancaria {
     
 
     private void retirar() {
-        String input = JOptionPane.showInputDialog("Ingrese el monto a retirar:");
-            double cantidad = Double.parseDouble(input);
+        JOptionPane.showInputDialog("Ingrese el monto a retirar:");
+            cantidad = Double.parseDouble(input);
             if (cantidad > 0 && saldo >= cantidad) {
                 saldo -= cantidad;
                 JOptionPane.showMessageDialog(null, "Retiro de $" + cantidad + " realizado con éxito.");
@@ -61,14 +61,14 @@ public class CuentaBancaria {
     }
 
     public static void main(String[] args) {
-        String numeroCuenta = JOptionPane.showInputDialog("Ingrese el número de cuenta:");
-        String saldoInicialStr = JOptionPane.showInputDialog("Ingrese el saldo inicial:");
+        numeroCuenta = JOptionPane.showInputDialog("Ingrese el número de cuenta:");
+        saldoInicialStr = JOptionPane.showInputDialog("Ingrese el saldo inicial:");
 
-            double saldoInicial = Double.parseDouble(saldoInicialStr);
+            saldoInicial = Double.parseDouble(saldoInicialStr);
             CuentaBancaria cuenta = new CuentaBancaria(numeroCuenta, saldoInicial);
 
             while (true) {
-                String opcionStr = JOptionPane.showInputDialog(
+                opcionStr = JOptionPane.showInputDialog(
                         "Operaciones disponibles:\n" +
                         "1. Depósito\n" +
                         "2. Retiro\n" +
@@ -76,7 +76,7 @@ public class CuentaBancaria {
                         "4. Salir\n" +
                         "Ingrese el número de la operación que desea realizar:"
                 );
-                int opcion = Integer.parseInt(opcionStr);
+                opcion = Integer.parseInt(opcionStr);
 
                 if (opcion == 4) {
                     break;
