@@ -1,0 +1,30 @@
+5. Clase Círculo: Crea una clase Circulo con una variable privada para el radio y métodos públicos para obtener el área y la circunferencia del círculo. 
+Asegúrate de que el radio sea siempre no negativo.
+
+package circulo.circulo;
+
+import javax.swing.JOptionPane;
+
+public class Circulo {
+    public static void main(String[] args) {
+        Circulo circulo = new Circulo();
+        circulo.info();
+        circulo.mostrar();
+    }
+    private float radio;
+    float area;
+    
+    public void info() {
+    this.radio = Float.parseFloat(JOptionPane.showInputDialog("Ingrese el radio del circulo: "));
+    }
+    public float getRadio(){
+        return radio;
+    }
+    public void setRadio(float titulo) {
+        this.radio = titulo;
+    }
+    public void mostrar(){
+        area = (float) (Math.PI * Math.pow(radio, 2));
+        JOptionPane.showMessageDialog(null, "El area del circulo es: "+area);
+    }
+}
