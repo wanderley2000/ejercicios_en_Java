@@ -56,20 +56,20 @@ public class Automovil {
     }
     
     public static void main(String[] args) {
-        String marca = JOptionPane.showInputDialog("Ingrese el marca del vehiculo: ");
+        marca = JOptionPane.showInputDialog("Ingrese el marca del vehiculo: ");
         int modelo = Integer.parseInt(JOptionPane.showInputDialog("Ingrese el modelo del vehiculo: "));
         
             Automovil auto = new Automovil(marca, modelo);
 
             while (true) {
-                String opcionStr = JOptionPane.showInputDialog(
+                opcionStr = JOptionPane.showInputDialog(
                         "Operaciones disponibles:\n" +
                         "1. Acelerar\n" +
                         "2. Frenar\n" +
                         "3. Consultar velocidad\n" +
                         "Ingrese el número de la operación que desea realizar:"
                 );
-                int opcion = Integer.parseInt(opcionStr);
+                opcion = Integer.parseInt(opcionStr);
 
                 if (opcion == 4) {
                     break;
